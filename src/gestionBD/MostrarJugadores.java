@@ -1,5 +1,6 @@
 package gestionBD;
 
+
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -67,7 +68,9 @@ public class MostrarJugadores {
 		   pstmt.setInt(1, edad);
 		   //Ejecutamos el preparedStatement
 		   res=pstmt.executeQuery();
-		   
+		   /**
+		    * @
+		    */
 		   //Mostramos los datos de los jugadores
 		   //Mientras haya registros en el resulset
 		   while (res.next())
@@ -104,6 +107,18 @@ public class MostrarJugadores {
 		
 		
 		
+	}
+	
+	
+	/**
+	 * Esta Funcion realiza la suma de dos enteros
+	 * @param x primer entero a sumar	
+	 * @param y segundo entero a sumar
+	 * @return el resultado
+	 */
+	public int suma(int x, int y)
+	{
+		return x+y;
 	}
 
 }
