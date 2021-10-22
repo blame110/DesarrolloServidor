@@ -14,6 +14,9 @@ public class EjemploJoin {
 
 		}
 
+		// Tiempo actual en milisegundos
+		long tiempoInicial = System.currentTimeMillis();
+
 		// Forma de comprobar la finalización de todos los hilos
 		boolean hilosTerminados = false;
 		while (!hilosTerminados) {
@@ -32,6 +35,8 @@ public class EjemploJoin {
 				hilosTerminados = true;
 
 		}
+
+		System.out.println("Ha tardado " + (float) (System.currentTimeMillis() - tiempoInicial) / 1000);
 
 		// Creamos y arrancamos los hilos
 		for (int i = 0; i <= 9; i++) {
