@@ -89,12 +89,17 @@ public class MultiplesHilosOperacion {
 	 * divisors, dividing the work among a specified number of threads.
 	 */
 	private static void countDivisorsWithThreads(int numberOfThreads) {
+
 		System.out.println("\nCounting divisors using " + numberOfThreads + " threads...");
+
 		long startTime = System.currentTimeMillis();
+
 		CountDivisorsThread[] worker = new CountDivisorsThread[numberOfThreads];
+
 		int integersPerThread = MAX / numberOfThreads;
 		int start = 1; // Starting point of the range of ints for first thread.
 		int end = start + integersPerThread - 1; // End point of the range of ints.
+
 		for (int i = 0; i < numberOfThreads; i++) {
 			if (i == numberOfThreads - 1) {
 				end = MAX; // Make sure that the last thread's range goes all
@@ -105,9 +110,12 @@ public class MultiplesHilosOperacion {
 			start = end + 1; // Determine the range of ints for the NEXT thread.
 			end = start + integersPerThread - 1;
 		}
+
 		maxDivisorCount = 0;
+
 		for (int i = 0; i < numberOfThreads; i++)
 			worker[i].start();
+
 		for (int i = 0; i < numberOfThreads; i++) {
 			// Wait for each worker thread to die, because the results
 			// are not complete until all threads have completed and
@@ -119,11 +127,16 @@ public class MultiplesHilosOperacion {
 				}
 			}
 		}
+
 		long elapsedTime = System.currentTimeMillis() - startTime;
+
 		System.out.println(
-				"\nThe largest number of divisors " + "for numbers between 1 and " + MAX + " is " + maxDivisorCount);
+				"\nThe largest number of divisors for numbers between 1 and " + MAX + " is " + maxDivisorCount);
+
 		System.out.println("An integer with that many divisors is " + intWithMaxDivisorCount);
+
 		System.out.println("Total elapsed time:  " + (elapsedTime / 1000.0) + " seconds.\n");
+
 	}
 
 	/**
