@@ -13,7 +13,7 @@ public class Hilo extends Thread {
 
 		System.out.println("Inicial el hilo " + this.getName());
 		for (int z = 0; z <= 100; z++)
-			for (int j = 0; j <= 1000; j++) {
+			for (int j = 0; j <= 100; j++) {
 				for (int i = 0; i <= 100; i++) {
 					factorial(i);
 				}

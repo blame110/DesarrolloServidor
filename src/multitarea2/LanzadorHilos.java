@@ -21,6 +21,10 @@ public class LanzadorHilos {
 		//hiloInicial2.start();
 		//hiloInicial3.start();
 		
+		//Vamos a calcular el tiempo que tardan en ejecutarse los 9 hilos
+		//Capturamos el tiempo antes de empezar
+		long tiempo = System.currentTimeMillis();
+		
 		//Creamos y arrancamos los 10 hilos
 		for (int i=0;i<=9;i++)
 		{
@@ -33,7 +37,24 @@ public class LanzadorHilos {
 			conjuntoHilos[i].start();
 		}
 		
-
+		//Nos aseguramos de que los hilos has finalizado
+		try {
+		for (int i=0;i<=9;i++)
+		{
+			
+				conjuntoHilos[i].join();
+			
+		}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//Una vez acaban los hilos le restamos al tiempo actual el tiempo inicial previamente capturado
+		tiempo= System.currentTimeMillis()-tiempo;
+		
+		System.out.println("Han tardado " + tiempo/1000 + "Segundos");
+		
 		
 	}
 
